@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Caldos Constitución | Iniciar Sesión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1a1a1a",
+                        secondary: "#c9a96e",
+                        accent: "#8b4513"
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.postimg.cc/DZMkrvbr/Imagen-de-Whats-App-2025-10-08-a-las-10-51-44-8d80c26b.jpg') center/cover;
+            opacity: 0.15;
+            filter: blur(3px);
+        }
+        
+        .card-glass {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        .gradient-border {
+            position: relative;
+            background: white;
+            border-radius: 24px;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 24px;
+            padding: 3px;
+            background: linear-gradient(135deg, #c9a96e, #8b4513, #c9a96e);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: rotate 3s linear infinite;
+        }
+        
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+        
+        .input-modern {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, transparent, transparent) border-box;
+        }
+        
+        .input-modern:focus {
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #c9a96e, #8b4513) border-box;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(201, 169, 110, 0.3);
+        }
+        
+        .btn-gradient {
+            position: relative;
+            background: linear-gradient(135deg, #c9a96e 0%, #8b4513 100%);
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .btn-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-gradient:hover::before {
+            left: 100%;
+        }
+        
+        .btn-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px -10px rgba(201, 169, 110, 0.6);
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            75% { transform: translateY(-10px) rotate(-5deg); }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #c9a96e 0%, #f4e4c1 50%, #8b4513 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .social-btn {
+            transition: all 0.3s ease;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .social-btn:hover {
+            border-color: #c9a96e;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(201, 169, 110, 0.3);
+        }
+        
+        .tab-btn {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #c9a96e, #8b4513);
+            border-radius: 10px;
+        }
+        
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, #c9a96e 0%, transparent 70%);
+            animation: particleFloat 15s infinite;
+            opacity: 0.3;
+        }
+        
+        @keyframes particleFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.2); }
+            50% { transform: translate(-30px, -100px) scale(0.8); }
+            75% { transform: translate(70px, -70px) scale(1.1); }
+        }
+        
+        .form-container {
+            display: none;
+        }
+        
+        .form-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .logo-glow {
+            filter: drop-shadow(0 0 20px rgba(201, 169, 110, 0.5));
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(201, 169, 110, 0.5)); }
+            50% { filter: drop-shadow(0 0 35px rgba(201, 169, 110, 0.8)); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 font-sans">
+    
+    <!-- Imagen de fondo -->
+    <div class="hero-image"></div>
+    
+    <!-- Partículas animadas -->
+    <div class="particles">
+        <div class="particle" style="width: 60px; height: 60px; top: 10%; left: 15%; animation-delay: 0s;"></div>
+        <div class="particle" style="width: 40px; height: 40px; top: 60%; left: 75%; animation-delay: 2s;"></div>
+        <div class="particle" style="width: 80px; height: 80px; top: 30%; right: 10%; animation-delay: 4s;"></div>
+        <div class="particle" style="width: 50px; height: 50px; bottom: 20%; left: 25%; animation-delay: 6s;"></div>
+        <div class="particle" style="width: 70px; height: 70px; bottom: 40%; right: 30%; animation-delay: 8s;"></div>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="relative z-10 w-full max-w-6xl slide-in">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            
+            <!-- Panel izquierdo - Branding -->
+            <div class="hidden md:block text-white space-y-8">
+                <div class="floating-element">
+                    <img src="https://i.postimg.cc/ydngsDFw/LOGO-CALDOS-CONSTITUCI-N.png" 
+                         alt="Logo Caldos Constitución" 
+                         class="w-48 h-48 mx-auto logo-glow mb-8">
+                </div>
+                
+                <div class="text-center space-y-4">
+                    <h1 class="text-5xl font-serif font-bold">
+                        Caldos<span class="text-gold-gradient">Constitución</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 max-w-md mx-auto leading-relaxed">
+                        Donde cada plato cuenta una historia de tradición y sabor auténtico
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-4 mt-12 max-w-md mx-auto">
+                    <div class="text-center p-4 bg-white/10 backdrop-blur rounded-xl">
+                        <div class="text-3xl font-bold text-gold-gradient">50+</div>
+                        <div class="text-sm text-gray-300 mt-1">Platos</div>
+                    </div>
+                    <div class="text-center p-4 bg-white/10 backdrop-blur rounded-xl">
+                        <div class="text-3xl font-bold text-gold-gradient">10K+</div>
+                        <div class="text-sm text-gray-300 mt-1">Clientes</div>
+                    </div>
+                    <div class="text-center p-4 bg-white/10 backdrop-blur rounded-xl">
+                        <div class="text-3xl font-bold text-gold-gradient">4.9★</div>
+                        <div class="text-sm text-gray-300 mt-1">Rating</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel derecho - Formulario -->
+            <div class="gradient-border">
+                <div class="card-glass rounded-3xl p-8 md:p-10">
+                    
+                    <!-- Logo móvil -->
+                    <div class="md:hidden text-center mb-6">
+                        <img src="https://i.postimg.cc/ydngsDFw/LOGO-CALDOS-CONSTITUCI-N.png" 
+                             alt="Logo" 
+                             class="w-24 h-24 mx-auto mb-4 logo-glow">
+                        <h2 class="text-2xl font-serif font-bold text-primary">
+                            Caldos<span class="text-gold-gradient">Constitución</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Pestañas -->
+                    <div class="flex border-b-2 border-gray-200 mb-8">
+                        <button id="tab-login" 
+                                class="tab-btn active flex-1 py-3 text-center font-semibold text-lg text-primary transition-all">
+                            Iniciar Sesión
+                        </button>
+                        <button id="tab-register" 
+                                class="tab-btn flex-1 py-3 text-center font-semibold text-lg text-gray-400 transition-all">
+                            Registro
+                        </button>
+                    </div>
+
+                    <!-- Formulario Login -->
+                    <div id="form-login" class="form-container active">
+                        <form id="loginForm" class="space-y-5">
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2 text-sm">
+                                    Correo Electrónico
+                                </label>
+                                <div class="relative">
+                                    <i class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                    <input 
+                                        type="email" 
+                                        class="input-modern w-full pl-12 pr-4 py-3.5 rounded-xl focus:outline-none"
+                                        placeholder="tu@email.com"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2 text-sm">
+                                    Contraseña
+                                </label>
+                                <div class="relative">
+                                    <i class="fas fa-lock absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                    <input 
+                                        type="password" 
+                                        id="login-password"
+                                        class="input-modern w-full pl-12 pr-12 py-3.5 rounded-xl focus:outline-none"
+                                        placeholder="••••••••"
+                                        required
+                                    >
+                                    <button type="button" 
+                                            class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-secondary transition-colors"
+                                            onclick="togglePassword('login-password', this)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-sm">
+                                <label class="flex items-center cursor-pointer group">
+                                    <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-secondary focus:ring-secondary mr-2">
+                                    <span class="text-gray-600 group-hover:text-primary transition-colors">Recordarme</span>
+                                </label>
+                                <a href="#" class="text-secondary hover:text-accent font-medium transition-colors">
+                                    ¿Olvidaste tu contraseña?
+                                </a>
+                            </div>
+
+                            <button type="submit" 
+                                    class="btn-gradient w-full text-white font-semibold py-4 rounded-xl shadow-lg">
+                                Iniciar Sesión
+                            </button>
+
+                            <div class="relative my-6">
+                                <div class="absolute inset-0 flex items-center">
+                                    <div class="w-full border-t border-gray-300"></div>
+                                </div>
+                                <div class="relative flex justify-center text-sm">
+                                    <span class="px-4 bg-white text-gray-500">O continúa con</span>
+                                </div>
+                            </div>
+
+                           <div class="grid grid-cols-2 gap-3">
+                            <!-- Google -->
+                                <button type="button" class="social-btn flex-1 flex items-center justify-center py-3 rounded-xl bg-white">
+                                    <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                        <path fill="#4285F4" d="M24 9.5c3.14 0 5.95 1.08 8.17 2.86l6.09-6.09C34.46 3.09 29.5 1 24 1 14.82 1 7.01 6.7 3.69 14.7l7.09 5.51C12.5 14.07 17.77 9.5 24 9.5z"/>
+                                        <path fill="#34A853" d="M46.1 24.55c0-1.64-.15-3.22-.42-4.75H24v9.02h12.42c-.54 2.9-2.18 5.36-4.65 7.02l7.19 5.59C43.18 37.22 46.1 31.36 46.1 24.55z"/>
+                                        <path fill="#FBBC05" d="M10.78 28.79A14.56 14.56 0 0 1 9.5 24c0-1.66.28-3.26.78-4.79L3.19 13.7A23.01 23.01 0 0 0 1 24c0 3.74.9 7.28 2.69 10.3l7.09-5.51z"/>
+                                        <path fill="#EA4335" d="M24 47c5.5 0 10.12-1.82 13.5-4.94l-7.19-5.59c-1.83 1.23-4.17 1.96-6.31 1.96-6.23 0-11.5-4.57-13.22-10.64l-7.09 5.51C7.01 41.3 14.82 47 24 47z"/>
+                                        <path fill="none" d="M1 1h46v46H1z"/>
+                                    </svg>
+                                    <span class="font-medium text-gray-700 text-sm">Google</span>
+                                </button>
+
+                                <!-- Faccebook -->
+                                <button type="button" class="social-btn flex items-center justify-center py-3 rounded-xl bg-white">
+                                    <i class="fab fa-facebook text-blue-600 text-xl mr-2"></i>
+                                    <span class="font-medium text-gray-700">Facebook</span>
+                                </button>
+
+                                <!-- Apple / iOS -->
+                                 <button type="button" class="social-btn flex-1 flex items-center justify-center py-3 rounded-xl bg-white">
+                                    <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 814 1000">
+                                        <path fill="#1a1a1a" d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 682.3 0 581.8c0-159.8 104.4-244.5 206.7-244.5 55.5 0 101.6 37.2 136.3 37.2 33.1 0 84.9-39.5 148.4-39.5 24.3 0 108.2 2.6 168.6 81.2zm-107.4-181.3c31.1-36.9 53.1-88.1 53.1-139.3 0-7.1-.6-14.3-1.9-20.1-50.6 1.9-110.8 33.7-147.1 75.8-28.5 32.4-55.1 83.6-55.1 135.5 0 7.8 1.3 15.6 1.9 18.1 3.2.6 8.4 1.3 13.6 1.3 45.4 0 102.5-30.4 135.5-71.3z"/>
+                                    </svg>
+                                    <span class="font-medium text-gray-700">Apple</span>
+                                </button>
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Formulario Registro -->
+                    <div id="form-register" class="form-container">
+                        <form id="registerForm" class="space-y-4">
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2 text-sm">
+                                    Nombre Completo
+                                </label>
+                                <div class="relative">
+                                    <i class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                    <input 
+                                        type="text" 
+                                        class="input-modern w-full pl-12 pr-4 py-3.5 rounded-xl focus:outline-none"
+                                        placeholder="Juan Pérez"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2 text-sm">
+                                    Correo Electrónico
+                                </label>
+                                <div class="relative">
+                                    <i class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                    <input 
+                                        type="email" 
+                                        class="input-modern w-full pl-12 pr-4 py-3.5 rounded-xl focus:outline-none"
+                                        placeholder="tu@email.com"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2 text-sm">
+                                    Teléfono
+                                </label>
+                                <div class="relative">
+                                    <i class="fas fa-phone absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                    <input 
+                                        type="tel" 
+                                        class="input-modern w-full pl-12 pr-4 py-3.5 rounded-xl focus:outline-none"
+                                        placeholder="+1 809 123 4567"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2 text-sm">
+                                    Contraseña
+                                </label>
+                                <div class="relative">
+                                    <i class="fas fa-lock absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                    <input 
+                                        type="password" 
+                                        id="register-password"
+                                        class="input-modern w-full pl-12 pr-12 py-3.5 rounded-xl focus:outline-none"
+                                        placeholder="Mínimo 8 caracteres"
+                                        required
+                                    >
+                                    <button type="button" 
+                                            class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-secondary transition-colors"
+                                            onclick="togglePassword('register-password', this)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2 text-sm">
+                                    Confirmar Contraseña
+                                </label>
+                                <div class="relative">
+                                    <i class="fas fa-lock absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                    <input 
+                                        type="password" 
+                                        id="register-confirm"
+                                        class="input-modern w-full pl-12 pr-12 py-3.5 rounded-xl focus:outline-none"
+                                        placeholder="Repite tu contraseña"
+                                        required
+                                    >
+                                    <button type="button" 
+                                            class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-secondary transition-colors"
+                                            onclick="togglePassword('register-confirm', this)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <label class="flex items-start cursor-pointer group mt-4">
+                                <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-secondary focus:ring-secondary mr-3 mt-1" required>
+                                <span class="text-sm text-gray-600 group-hover:text-primary transition-colors">
+                                    Acepto los <a href="#" class="text-secondary hover:text-accent font-medium">términos y condiciones</a> y la <a href="#" class="text-secondary hover:text-accent font-medium">política de privacidad</a>
+                                </span>
+                            </label>
+
+                            <button type="submit" 
+                                    class="btn-gradient w-full text-white font-semibold py-4 rounded-xl shadow-lg mt-6">
+                                Crear Cuenta
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    <script src="login.js"></script>
+
+</body>
+</html>

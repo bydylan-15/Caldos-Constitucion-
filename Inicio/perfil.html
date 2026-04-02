@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Caldos Constitución</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+
+    <!-- Barra de Navegacion -->
+    <header class="header-principal" id="nav-header">
+        <nav class="contenedor nav-menu">
+            <div class="flex-items-center">
+                <a href="index.html#inicio" style="text-decoration: none; color: inherit;">
+                <h1 class="logo-titulo">Caldos <span class="texto-gradiente">Constitución</span></h1>
+                </a>
+            </div>
+            
+            <div class="menu-desktop" id="menu-principal">
+                <a href="#inicio" class="nav-link">
+                    Inicio
+                    <span class="nav-link-underline"></span>
+                </a>
+                <a href="#menu" class="nav-link">
+                    Menú
+                    <span class="nav-link-underline"></span>
+                </a>
+                <a href="#nosotros" class="nav-link">
+                    Nosotros
+                    <span class="nav-link-underline"></span>
+                </a>
+                <a href="#contacto" class="nav-link">
+                    Contacto
+                    <span class="nav-link-underline"></span>
+                </a>
+            </div>
+
+            <div class="flex-items-center espacio-x-4 zoom-in-animation">
+                <div class="dropdown-idioma">
+                    <button class="btn-idioma">
+                        <i class="fas fa-globe mr-1 icono-giratorio"></i>
+                        <span>ES</span>
+                        <i class="fas fa-chevron-down ml-1 icono-flecha"></i>
+                    </button>
+                    <div class="dropdown-contenido">
+                        <a href="#" class="dropdown-item">Español</a>
+                        <a href="#" class="dropdown-item">English</a>
+                        <a href="#" class="dropdown-item">Français</a>
+                    </div>
+                </div>
+
+                <button class="btn-notificacion">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge-notificacion pulse-slow-animation">3</span>
+                </button>
+
+                <div class="perfil-container">
+                    <button class="btn-perfil" id="btnPerfil">
+                        <i class="fas fa-user-circle icono-perfil"></i>
+                    </button>
+                    
+                    <div class="menu-desplegable" id="menuPerfil">
+                        <div class="usuario-info">
+                            <p><strong id="saludoNombre">Hola, Usuario </strong></p>
+                        </div>
+                        <hr>
+                        <a href="perfil.html"><i class="fas fa-user"></i> Mi Perfil</a>
+                        <a href="#" class="cerrar-sesion" id="logout">
+                            <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                        </a>
+                    </div>
+                </div>
+                
+                <button id="mobile-menu-button" class="btn-menu-movil">
+                    <i class="fas fa-bars icono-menu"></i>
+                </button>
+            </div>
+            
+        </nav>
+        
+        <div id="mobile-menu" class="menu-movil-desplegable hidden-mobile">
+            <div class="menu-movil-links stagger-animation-group">
+                <a href="#inicio" class="menu-movil-link">Inicio</a>
+                <a href="#menu" class="menu-movil-link">Menú</a>
+                <a href="#nosotros" class="menu-movil-link">Nosotros</a>
+                <a href="#contacto" class="menu-movil-link">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        <section class="perfil-seccion zoom-in-animation">
+            <div class="perfil-card">
+                <div class="perfil-header">
+                    <div class="avatar-grande">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h2 id="perfilNombreTitulo">Cargando...</h2>
+                    <p class="rol-usuario">Cliente Caldos Constitución</p>
+                </div>
+
+                <div class="perfil-info">
+                    <div class="info-item">
+                        <label><i class="fas fa-user"></i> Nombre Completo</label>
+                        <span id="perfilNombre">No disponible</span>
+                    </div>
+                    <div class="info-item">
+                        <label><i class="fas fa-envelope"></i> Correo Electrónico</label>
+                        <span id="perfilEmail">No disponible</span>
+                    </div>
+                    <div class="info-item">
+                        <label><i class="fas fa-calendar-alt"></i> Miembro desde</label>
+                        <span>Septiembre 2025</span>
+                    </div>
+                </div>
+
+                <div class="perfil-acciones">
+                    <button class="btn-editar">
+                        <i class="fas fa-edit"></i> Editar Mis Datos
+                    </button>
+                </div>
+            </div>
+        </section> </main> <script src="script.js"></script> 
+</body>
+</html>

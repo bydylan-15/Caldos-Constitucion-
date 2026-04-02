@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Caldos Constitución | Gastronomía Excepcional</title>
+    <meta name="description" content="Restaurante de alta cocina con ingredientes frescos y ambiente sofisticado">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="cuerpo-pagina">
+
+    <!-- Barra de Navegacion -->
+    <header class="header-principal" id="nav-header">
+        <nav class="contenedor nav-menu">
+            <div class="flex-items-center">
+                <a href="#inicio" style="text-decoration: none; color: inherit;">
+                <h1 class="logo-titulo">Caldos <span class="texto-gradiente">Constitución</span></h1>
+                </a>
+            </div>
+            
+            <div class="menu-desktop" id="menu-principal">
+                <a href="#inicio" class="nav-link">
+                    Inicio
+                    <span class="nav-link-underline"></span>
+                </a>
+                <a href="#menu" class="nav-link">
+                    Menú
+                    <span class="nav-link-underline"></span>
+                </a>
+                <a href="#nosotros" class="nav-link">
+                    Nosotros
+                    <span class="nav-link-underline"></span>
+                </a>
+                <a href="#contacto" class="nav-link">
+                    Contacto
+                    <span class="nav-link-underline"></span>
+                </a>
+            </div>
+
+            <div class="flex-items-center espacio-x-4 zoom-in-animation">
+                <div class="dropdown-idioma">
+                    <button class="btn-idioma">
+                        <i class="fas fa-globe mr-1 icono-giratorio"></i>
+                        <span>ES</span>
+                        <i class="fas fa-chevron-down ml-1 icono-flecha"></i>
+                    </button>
+                    <div class="dropdown-contenido">
+                        <a href="#" class="dropdown-item">Español</a>
+                        <a href="#" class="dropdown-item">English</a>
+                        <a href="#" class="dropdown-item">Français</a>
+                    </div>
+                </div>
+
+                <button class="btn-notificacion">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge-notificacion pulse-slow-animation">3</span>
+                </button>
+
+                <div class="perfil-container">
+                    <button class="btn-perfil" id="btnPerfil">
+                        <i class="fas fa-user-circle icono-perfil"></i>
+                    </button>
+                    
+                    <div class="menu-desplegable" id="menuPerfil">
+                        <div class="usuario-info">
+                            <p><strong>Hola, Usuario </strong></p>
+                        </div>
+                        <hr>
+                        <a href="perfil.html"><i class="fas fa-user"></i> Mi Perfil</a>
+                        <a href="#" class="cerrar-sesion" id="logout">
+                            <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                        </a>
+                    </div>
+                </div>
+                
+                <button id="mobile-menu-button" class="btn-menu-movil">
+                    <i class="fas fa-bars icono-menu"></i>
+                </button>
+            </div>
+            
+        </nav>
+        
+        <div id="mobile-menu" class="menu-movil-desplegable hidden-mobile">
+            <div class="menu-movil-links stagger-animation-group">
+                <a href="#inicio" class="menu-movil-link">Inicio</a>
+                <a href="#menu" class="menu-movil-link">Menú</a>
+                <a href="#nosotros" class="menu-movil-link">Nosotros</a>
+                <a href="#contacto" class="menu-movil-link">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="seccion-hero">
+            <div class="hero-fondo-degradado"></div>
+            <div class="contenedor texto-centrado z-index-1">
+                <h2 class="titulo-hero typewriter-animation">
+                    Experiencia <span class="texto-gradiente">Gastronómica</span>
+                </h2>
+                    <p class="subtitulo-hero fade-in-animation" style="animation-delay: 1.5s;">Descubre sabores excepcionales en un ambiente sofisticado y acogedor</p>
+                <div class="botones-hero slide-up-animation" style="animation-delay: 2s;">
+                    <a href="#menu" class="btn-principal morph-button">Ver Menú</a>
+                    <a href="#reservas" class="btn-secundario pulse-border-animation">Reservar Mesa</a>
+                </div>
+            </div>
+            <div class="indicador-scroll floating-animation">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="particulas-contenedor">
+                <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+                <div class="particle" style="top: 50%; left: 80%; animation-delay: 1s;"></div>
+                <div class="particle" style="top: 40%; left: 30%; animation-delay: 2s;"></div>
+            </div>
+        </section>
+
+        <section class="seccion-especialidades seccion-padding bg-gris-claro parallax-bg">
+            <div class="contenedor">
+                <div class="texto-centrado mb-12 fade-in-animation">
+                    <h2 class="titulo-seccion">Nuestras Especialidades</h2>
+                    <p class="subtitulo-seccion">Platos cuidadosamente elaborados con ingredientes de la más alta calidad</p>
+                </div>
+                <div class="grid-3-cols stagger-animation-group">
+                    
+                    <div class="card-especial card-3d">
+                        <div class="card-imagen-contenedor">
+                            <img class="card-imagen" src="https://i.postimg.cc/MH6cppz8/DSC02685.png">
+                        </div>
+                        <div class="card-contenido">
+                            <h3 class="card-titulo">Cocido de Cerdo</h3>
+                            <p class="card-descripcion">Un guiso tradicional con patica de cerdo y verduras frescas, lleno de sabor casero que conquista el paladar desde el primer bocado.</p>
+                            <div class="card-footer">
+                                <span class="card-precio-secundario">$450</span>
+                                <button class="btn-secundario-accion">Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-especial card-3d">
+                        <div class="card-imagen-contenedor">
+                            <img class="card-imagen" src="https://i.postimg.cc/SxsKPPxV/DSC02634.png">
+                        </div>
+                        <div class="card-contenido">
+                            <h3 class="card-titulo">Cocido de Res</h3>
+                            <p class="card-descripcion">Paticas de res cocidas a fuego lento con especias criollas. Un plato tradicional, sabroso y lleno de energía.</p>
+                            <div class="card-footer">
+                                <span class="card-precio-secundario">$450</span>
+                                <button class="btn-secundario-accion">Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-especial card-3d">
+                        <div class="card-imagen-contenedor">
+                            <img class="card-imagen" src="https://i.postimg.cc/FRQpG3VJ/DSC02630.png">
+                        </div>
+                        <div class="card-contenido">
+                            <h3 class="card-titulo">Pati-Mongo</h3>
+                            <p class="card-descripcion">Delicioso guiso tradicional de paticas y mondongo de res, cocido a fuego lento con especias criollas y vegetales. Un plato fuerte, auténtico y lleno de sabor Dominicano.</p>
+                            <div class="card-footer">
+                                <span class="card-precio-secundario">$450</span>
+                                <button class="btn-secundario-accion">Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-padding bg-blanco">
+            <div class="contenedor texto-centrado">
+                <h2 class="titulo-seccion mb-6 fade-in-animation">Conoce Nuestro Restaurante</h2>
+                <p class="subtitulo-seccion mb-8">Descubre la experiencia Caldos Constitución</p>
+                
+                <div class="video-responsive">
+                    <video 
+                        controls 
+                        loop 
+                        preload="metadata" 
+                        style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                        <source src="videos/restaurante.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="seccion-padding bg-blanco">
+            <div class="contenedor">
+                <div class="texto-centrado mb-12 fade-in-animation">
+                    <h2 class="titulo-seccion">Nuestro Menú</h2>
+                    <p class="subtitulo-seccion">Una selección cuidadosamente curada de platos para todos los gustos</p>
+                </div>
+                
+                <div class="categorias-menu stagger-animation-group">
+                    <button class="btn-categoria active morph-button">Entrantes</button>
+                    <button class="btn-categoria active morph-button">Platos Principales</button>
+                    <button class="btn-categoria active morph-button">Bebidas</button>
+                </div>
+
+                <div class="grid-2-cols stagger-animation-group" style="animation-delay: 0.2s;">
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <div>
+                                <h3 class="menu-item-titulo">Mondongo</h3>
+                                <p class="menu-item-descripcion">Tradicional mondongo preparado con paciencia, amor y los ingredientes más frescos del mercado.</p>
+                            </div>
+                            <span class="menu-item-precio">$450</span>
+                        </div>
+                        <div class="flex-justify-end">
+                            <button class="btn-secundario-accion">Añadir</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <div>
+                                <h3 class="menu-item-titulo">Caldereta Rey de los 7 Mares</h3>
+                                <p class="menu-item-descripcion">Rey de la Cocina</p>
+                            </div>
+                            <span class="menu-item-precio">$1,400</span>
+                        </div>
+                        <div class="flex-justify-end">
+                            <button class="btn-secundario-accion">Añadir</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <div>
+                                <h3 class="menu-item-titulo">Sancocho de Res</h3>
+                                <p class="menu-item-descripcion">Clásico caldo criollo preparado con carne de res, víveres frescos y un toque de especias tradicionales.</p>
+                            </div>
+                            <span class="menu-item-precio">$450</span>
+                        </div>
+                        <div class="flex-justify-end">
+                            <button class="btn-secundario-accion">Añadir</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <div>
+                                <h3 class="menu-item-titulo">Sancocho</h3>
+                                <p class="menu-item-descripcion">Un plato reconfortante, lleno de sabor y esencia dominicana.</p>
+                            </div>
+                            <span class="menu-item-precio">$400</span>
+                        </div>
+                        <div class="flex-justify-end">
+                            <button class="btn-secundario-accion">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="texto-centrado mt-12 fade-in-animation" style="animation-delay: 0.8s;">
+                    <a href="#" class="btn-principal morph-button">Ver Menú Completo</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros" class="seccion-padding bg-gris-claro parallax-bg">
+            <div class="contenedor">
+                <div class="info-nosotros-layout stagger-animation-group">
+                    <div class="info-nosotros-imagen">
+                        <img src="https://i.postimg.cc/ydngsDFw/LOGO-CALDOS-CONSTITUCI-N.png" alt="Chef preparando plato" class="imagen-nosotros" loading="lazy">
+                    </div>
+                    <div class="info-nosotros-texto">
+                        <h2 class="titulo-seccion mb-6">Sobre Nosotros</h2>
+                        <p class="texto-parrafo mb-4">En Caldos Constitución, llevamos sirviendo los caldos más deliciosos y reconfortantes de la región. Nuestra pasión es mantener viva la tradición culinaria, preparando cada plato con ingredientes frescos y recetas que han pasado de generación en generación.</p>
+                        <p class="texto-parrafo mb-6">Creemos que un buen caldo no solo alimenta el cuerpo, sino también el alma. Por eso ponemos amor en cada preparación.</p>
+                    
+                        <div class="caracteristicas-listado stagger-animation-group" style="animation-delay: 0.4s;">
+                            <div class="caracteristica-item">
+                                <div class="caracteristica-icono-fondo">
+                                    <i class="fas fa-utensils icono-caracteristica"></i>
+                                </div>
+                                <div>
+                                    <h3 class="caracteristica-titulo">Cocina Criolla</h3>
+                                    <p class="caracteristica-descripcion">El punto de encuentro para los amantes del buen caldo y la comida criolla.</p>
+                                </div>
+                            </div>
+                            <div class="caracteristica-item">
+                                <div class="caracteristica-icono-fondo">
+                                    <i class="fas fa-leaf icono-caracteristica"></i>
+                                </div>
+                                <div>
+                                    <h3 class="caracteristica-titulo">Ingredientes Frescos</h3>
+                                    <p class="caracteristica-descripcion">Productos locales y de calidad</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reservas" class="seccion-padding bg-primario-reserva texto-blanco parallax-bg">
+            <div class="contenedor texto-centrado">
+                <h2 class="titulo-seccion-reserva fade-in-animation">Reserva Tu Mesa</h2>
+                <p class="subtitulo-reserva slide-up-animation" style="animation-delay: 0.3s;">Asegura tu experiencia reservando con anticipación</p>
+                <a href="#contacto" class="btn-principal morph-button bounce-slow-animation">Hacer Reservación</a>
+            </div>
+        </section>
+
+        <section id="contacto" class="seccion-padding bg-blanco">
+            <div class="contenedor">
+                <div class="texto-centrado mb-12 fade-in-animation">
+                    <h2 class="titulo-seccion">Contáctanos</h2>
+                    <p class="subtitulo-seccion">Estamos aquí para responder cualquier pregunta o ayudarte con tu reserva</p>
+                </div>
+                
+                <div class="contacto-layout">
+                    <div class="formulario-columna">
+                        <form class="card-contacto">
+                            <div class="mb-4">
+                                <label for="name" class="etiqueta-formulario">Nombre Completo</label>
+                                <input type="text" id="name" class="input-formulario" placeholder="Tu nombre">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="etiqueta-formulario">Correo Electrónico</label>
+                                <input type="email" id="email" class="input-formulario" placeholder="tu@email.com">
+                            </div>
+                            <div class="mb-4">
+                                <label for="phone" class="etiqueta-formulario">Teléfono</label>
+                                <input type="tel" id="phone" class="input-formulario" placeholder="+1 809 123 4567">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="etiqueta-formulario">Mensaje</label>
+                                <textarea id="message" rows="4" class="input-formulario" placeholder="Tu mensaje..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit morph-button">Enviar Mensaje</button>
+                        </form>
+                    </div>
+
+                    <!-- Información de Contacto -->
+                    <div class="info-columna">
+                        <div class="card-contacto">
+                            <h3 class="titulo-info-contacto">Información de Contacto</h3>
+                            <div class="info-items-contenedor">
+
+                                <div class="info-item">
+                                    <div class="info-icono-fondo">
+                                        <i class="fas fa-map-marker-alt icono-info"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="info-titulo">Dirección</h4>
+                                        <p class="info-texto">C/ Duarte Frente al Parque Piedras Vivas<br>San Cristóbal, República Dominicana</p>
+                                    </div>
+                                </div>
+
+                                <div class="info-item">
+                                    <div class="info-icono-fondo">
+                                        <i class="fas fa-phone icono-info"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="info-titulo">Teléfono</h4>
+                                        <p class="info-texto">Delivery Disponible</p>
+                                        <p class="info-texto">WhatsApp: (809) 861-6185</p>
+                                    </div>
+                                </div>
+
+                                <div class="info-item">
+                                    <div class="info-icono-fondo">
+                                        <i class="fas fa-envelope icono-info"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="info-titulo">Email</h4>
+                                        <p class="info-texto">info@caldosconstitución.com</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Redes Sociales -->
+                            <div class="redes-sociales">
+                                <h4 class="titulo-redes">Síguenos en Redes Sociales</h4>
+                                <div class="flex-redes">
+                                    <a href="https://web.facebook.com/CaldosConstitucionRD" class="btn-red-social" target="_blank">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/caldosconstitucionrd/" class="btn-red-social" target="_blank">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="https://l.instagram.com/?u=https%3A%2F%2Fmstr.ly%2FWhatsApp-Haz-Tu-Pedido-Aqui%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnu0rjRGXdVFMbVR_ok-Zw8XrLXW9Vuivr1YN5UOuY8lLboXNl0uFENQRliBw%26brid%3DN77XMDkhUEPwbH0EVKRV-A&e=AT1myFBuJ6GRkRhYvXv6jaATXlB4ARUrm5Gv33IYbgS5vqThPboPUA4HGkM-U0by_mpUqlTlCscGMJVxGFZe1S3FHgsE_QE1y5gA_VhULw" class="btn-red-social" target="_blank">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                    <a href="https://www.google.com/maps/place/Caldos+Constituci%C3%B3n/@18.4142667,-70.1099018,21z/data=!4m14!1m7!3m6!1s0x8ea55e8d590ec513:0xf0a31c209f70ae0d!2sPiedras+Vivas+Park!8m2!3d18.4138655!4d-70.1095629!16s%2Fg%2F1tdr4c9j!3m5!1s0x8ea55f91b40c067f:0xbd1e9baf7f6cb356!8m2!3d18.4142864!4d-70.1099675!16s%2Fg%2F11md232ry3?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D" class="btn-red-social" target="_blank">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-principal">
+        <div class="contenedor">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="logo-footer">Caldos<span class="texto-gradiente">Constitución</span></h3>
+                    <p class="texto-footer">Donde la buena mesa y la tradición se encuentran en el corazón de San Cristóbal.</p>
+                </div>
+                
+                <div>
+                    <h4 class="titulo-footer-seccion">Enlaces Rápidos</h4>
+                    <ul class="lista-footer">
+                        <li><a href="#inicio" class="enlace-footer">Inicio</a></li>
+                        <li><a href="#menu" class="enlace-footer">Menú</a></li>
+                        <li><a href="#nosotros" class="enlace-footer">Nosotros</a></li>
+                        <li><a href="#contacto" class="enlace-footer">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="titulo-footer-seccion">Horario</h4>
+                    <ul class="lista-footer">
+                        <li>Lunes - Domingo 8:00 AM - 11:00 PM</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="titulo-footer-seccion">Contacto</h4>
+                    <ul class="lista-footer">
+                        <li><a href="#contacto" class="enlace-footer">Contáctanos</a></li>
+                        <li><a href="tel:+18098616185" class="enlace-footer">(809) 861-6185</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="caldo-lovers-section">
+            <h4 class="caldo-lovers-title">
+                <i class="fas fa-fish icon-secondary animate-float"></i>
+                <span class="text-gradient">CaldoLovers</span>
+                <i class="fas fa-shrimp icon-secondary animate-float" style="animation-delay: 1s"></i>
+            </h4>
+            <p class="caldo-lovers-text">
+                <i class="fas fa-lobster icon-secondary icon-small"></i>
+                Suscríbete para recibir nuestras ofertas especiales
+            </p>
+            <div class="email-container">
+                <input type="email" placeholder="Tu email" class="email-input">
+                <button class="email-button">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            <p>&copy; 2025 Caldos Constitución. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
