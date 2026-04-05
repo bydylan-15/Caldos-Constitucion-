@@ -184,3 +184,162 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pTitulo && nombreGuardado) pTitulo.textContent = nombreGuardado;
     if (pEmail && emailGuardado) pEmail.textContent = emailGuardado;
 });
+
+// --- SISTEMA DE NOTIFICACIONES ---
+
+// Array de notificaciones (simulado - después puedes traerlo de una API)
+const notificaciones = [
+    {
+        id: 1,
+        titulo: "Nuevo pedido confirmado",
+        mensaje: "Tu pedido #1234 está en camino",
+        tiempo: "Hace 5 min",
+        icono: "fas fa-shopping-cart",
+        leida: false,
+        link: "#pedido-1234"
+    },
+    {
+        id: 2,
+        titulo: "Oferta especial",
+        mensaje: "20% descuento en todos los caldos",
+        tiempo: "Hace 1 hora",
+        icono: "fas fa-tag",
+        leida: false,
+        link: "#ofertas"
+    },
+    {
+        id: 3,
+        titulo: "Reservación confirmada",
+        mensaje: "Mesa para 4 personas mañana 7:00 PM",
+        tiempo: "Hace 3 horas",
+        icono: "fas fa-calendar",
+        leida: true,
+        link: "#reservaciones"
+    }
+];
+
+// Guardar en localStorage
+function guardarNotificaciones() {
+    localStorage.setItem('notificaciones', JSON.stringify(notificaciones));
+}
+
+// Cargar de localStorage
+function cargarNotificaciones() {
+    const guardadas = localStorage.getItem('notificaciones');
+    if (guardadas) {
+        return JSON.parse(guardadas);
+    }
+    return notificaciones;
+}
+
+// Contar no leídas
+function contarNoLeidas() {
+    const notifs = cargarNotificaciones();
+    return notifs.filter(n => !n.leida).length;
+}
+
+// Actualizar contador
+function actualizarContador() {
+    const contador = document.getElementById('contadorNotificaciones');
+    if (contador) {
+        const noLeidas = contarNoLeidas();
+        contador.textContent = noLeidas;
+        
+        if (noLeidas === 0) {
+            contador.style.display = 'none';
+        } else {
+            contador.style.display = 'flex';
+        }
+    }
+}
+
+// Renderizar notificaciones en el dropdown
+function renderizarNotificacionesDropdown() {
+    const lista = document.getElementById('listaNotificaciones');
+    if (!lista) return;
+
+    const notifs = cargarNotificaciones();
+    lista.innerHTML = '';
+
+    if (notifs.length === 0) {
+        lista.innerHTML = `
+            <div class="notificaciones-vacio">
+                <i class="fas fa-bell-slash"></i>
+                <p>No tienes notificaciones</p>
+            </div>
+        `;
+        return;
+    }
+
+    // Mostrar solo las últimas 5 en el dropdown
+    const ultimas = notifs.slice(0, 5);
+
+    ultimas.forEach(notif => {
+        const item = document.createElement('div');
+        item.className = `notificacion-item ${!notif.leida ? 'no-leida' : ''}`;
+        item.innerHTML = `
+            <div class="notificacion-icono">
+                <i class="${notif.icono}"></i>
+            </div>
+            <div class="notificacion-contenido">
+                <div class="notificacion-titulo">${notif.titulo}</div>
+                <div class="notificacion-texto">${notif.mensaje}</div>
+                <div class="notificacion-tiempo">${notif.tiempo}</div>
+            </div>
+        `;
+        
+        item.addEventListener('click', () => {
+            // Marcar como leída
+            notif.leida = true;
+            guardarNotificaciones();
+            actualizarContador();
+            renderizarNotificacionesDropdown();
+            
+            // Ir al link o a la página de notificaciones
+            if (notif.link && notif.link !== '#') {
+                window.location.href = notif.link;
+            } else {
+                window.location.href = 'notificaciones.html';
+            }
+        });
+
+        lista.appendChild(item);
+    });
+}
+
+// Inicializar sistema de notificaciones
+document.addEventListener('DOMContentLoaded', () => {
+    const btnNotificacion = document.getElementById('btnNotificacion');
+    const menuNotificaciones = document.getElementById('menuNotificaciones');
+
+    if (btnNotificacion && menuNotificaciones) {
+        // Toggle menú
+        btnNotificacion.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            menuNotificaciones.classList.toggle('mostrar');
+            
+            // Cerrar menú de perfil si está abierto
+            const menuPerfil = document.getElementById('menuPerfil');
+            if (menuPerfil) {
+                menuPerfil.classList.remove('mostrar');
+            }
+        });
+
+        // Cerrar al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!menuNotificaciones.contains(e.target) && !btnNotificacion.contains(e.target)) {
+                menuNotificaciones.classList.remove('mostrar');
+            }
+        });
+
+        // Prevenir cierre al hacer clic dentro
+        menuNotificaciones.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+
+    // Inicializar
+    actualizarContador();
+    renderizarNotificacionesDropdown();
+});

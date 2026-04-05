@@ -3,50 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Perfil - Caldos Constitución</title>
+    <title>Notificaciones - Caldos Constitución</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="notificaciones.css">
 </head>
 <body>
-
-    <!-- Barra de Navegacion -->
+     <!-- Barra de Navegacion -->
     <header class="header-principal" id="nav-header">
         <nav class="contenedor nav-menu">
             <div class="flex-items-center">
                 <a href="index.html#inicio" style="text-decoration: none; color: inherit;">
-                <h1 class="logo-titulo">Caldos <span class="texto-gradiente">Constitución</span></h1>
+                    <h1 class="logo-titulo">Caldos <span class="texto-gradiente">Constitución</span></h1>
                 </a>
             </div>
             
             <div class="menu-desktop" id="menu-principal">
-                <a href="index.html#inicio" class="nav-link">
-                    Inicio
-                    <span class="nav-link-underline"></span>
-                </a>
-                <a href="index.html#menu" class="nav-link">
-                    Menú
-                    <span class="nav-link-underline"></span>
-                </a>
-                <a href="index.html#nosotros" class="nav-link">
-                    Nosotros
-                    <span class="nav-link-underline"></span>
-                </a>
-                <a href="index.html#contacto" class="nav-link">
-                    Contacto
-                    <span class="nav-link-underline"></span>
-                </a>
+                <a href="index.html#inicio" class="nav-link">Inicio</a>
+                <a href="index.html#menu" class="nav-link">Menú</a>
+                <a href="index.html#nosotros" class="nav-link">Nosotros</a>
+                <a href="index.html#contacto" class="nav-link">Contacto</a>
             </div>
 
-            <div class="flex-items-center espacio-x-4 zoom-in-animation">
+            <div class="flex-items-center espacio-x-4">
 
                 <div class="notificaciones-container">
                     <button class="btn-notificacion" id="btnNotificacion">
                         <i class="fas fa-bell"></i>
                         <span class="badge-notificacion pulse-slow-animation" id="contadorNotificaciones">0</span>
                     </button>
-
+                    
                     <div class="menu-desplegable menu-notificaciones" id="menuNotificaciones">
                         <div class="usuario-info">
                             <p><strong>Notificaciones</strong></p>
@@ -64,10 +51,9 @@
                     <button class="btn-perfil" id="btnPerfil">
                         <i class="fas fa-user-circle icono-perfil"></i>
                     </button>
-                    
                     <div class="menu-desplegable" id="menuPerfil">
                         <div class="usuario-info">
-                            <p><strong id="saludoNombre">Hola, Usuario </strong></p>
+                            <p><strong>Hola, Usuario</strong></p>
                         </div>
                         <hr>
                         <a href="perfil.html"><i class="fas fa-user"></i> Mi Perfil</a>
@@ -76,14 +62,13 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <button id="mobile-menu-button" class="btn-menu-movil">
                     <i class="fas fa-bars icono-menu"></i>
                 </button>
             </div>
-            
+
         </nav>
-        
         <div id="mobile-menu" class="menu-movil-desplegable hidden-mobile">
             <div class="menu-movil-links stagger-animation-group">
                 <a href="index.html#inicio" class="menu-movil-link">Inicio</a>
@@ -108,37 +93,33 @@
     </header>
 
     <main class="contenedor">
-        <section class="perfil-seccion zoom-in-animation">
-            <div class="perfil-card">
-                <div class="perfil-header">
-                    <div class="avatar-grande">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <h2 id="perfilNombreTitulo">Cargando...</h2>
-                    <p class="rol-usuario">Cliente Caldos Constitución</p>
-                </div>
-
-                <div class="perfil-info">
-                    <div class="info-item">
-                        <label><i class="fas fa-user"></i> Nombre Completo</label>
-                        <span id="perfilNombre">No disponible</span>
-                    </div>
-                    <div class="info-item">
-                        <label><i class="fas fa-envelope"></i> Correo Electrónico</label>
-                        <span id="perfilEmail">No disponible</span>
-                    </div>
-                    <div class="info-item">
-                        <label><i class="fas fa-calendar-alt"></i> Miembro desde</label>
-                        <span>Septiembre 2025</span>
-                    </div>
-                </div>
-
-                <div class="perfil-acciones">
-                    <button class="btn-editar">
-                        <i class="fas fa-edit"></i> Editar Mis Datos
-                    </button>
-                </div>
+        <section class="notificaciones-pagina zoom-in-animation">
+            <div class="notificaciones-header-pagina">
+                <h2><i class="fas fa-bell mr-3"></i> Mis Notificaciones</h2>
+                <button class="btn-marcar-leidas" id="btnMarcarLeidas">
+                    <i class="fas fa-check-double"></i> Marcar todas como leídas
+                </button>
             </div>
-        </section> </main> <script src="script.js"></script> 
+
+            <div class="notificaciones-filtros">
+                <button class="filtro-btn active" data-filtro="todas">
+                    Todas <span class="filtro-count" id="countTodas">0</span>
+                </button>
+                <button class="filtro-btn" data-filtro="no-leidas">
+                    No leídas <span class="filtro-count" id="countNoLeidas">0</span>
+                </button>
+                <button class="filtro-btn" data-filtro="leidas">
+                    Leídas <span class="filtro-count" id="countLeidas">0</span>
+                </button>
+            </div>
+
+            <div class="notificaciones-contenido" id="notificacionesContenido">
+                <!-- Las notificaciones se cargarán aquí -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="notificaciones.js"></script>
 </body>
 </html>

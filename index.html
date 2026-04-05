@@ -41,23 +41,25 @@
             </div>
 
             <div class="flex-items-center espacio-x-4 zoom-in-animation">
-                <div class="dropdown-idioma">
-                    <button class="btn-idioma">
-                        <i class="fas fa-globe mr-1 icono-giratorio"></i>
-                        <span>ES</span>
-                        <i class="fas fa-chevron-down ml-1 icono-flecha"></i>
+
+                <div class="notificaciones-container">
+                    <button class="btn-notificacion" id="btnNotificacion">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge-notificacion pulse-slow-animation" id="contadorNotificaciones">0</span>
                     </button>
-                    <div class="dropdown-contenido">
-                        <a href="#" class="dropdown-item">Español</a>
-                        <a href="#" class="dropdown-item">English</a>
-                        <a href="#" class="dropdown-item">Français</a>
+
+                    <div class="menu-desplegable menu-notificaciones" id="menuNotificaciones">
+                        <div class="usuario-info">
+                            <p><strong>Notificaciones</strong></p>
+                        </div>
+                        <hr>
+                        <div class="notificaciones-lista" id="listaNotificaciones">
+                            <!-- Se cargan dinámicamente -->
+                        </div>
+                        <hr>
+                        <a href="notificaciones.html"><i class="fas fa-bell"></i> Ver todas</a>
                     </div>
                 </div>
-
-                <button class="btn-notificacion">
-                    <i class="fas fa-bell"></i>
-                    <span class="badge-notificacion pulse-slow-animation">3</span>
-                </button>
 
                 <div class="perfil-container">
                     <button class="btn-perfil" id="btnPerfil">
@@ -89,6 +91,19 @@
                 <a href="#menu" class="menu-movil-link">Menú</a>
                 <a href="#nosotros" class="menu-movil-link">Nosotros</a>
                 <a href="#contacto" class="menu-movil-link">Contacto</a>
+
+                <div class="dropdown-idioma">
+                    <button class="btn-idioma">
+                        <i class="fas fa-globe mr-1 icono-giratorio"></i>
+                        <span>ES</span>
+                        <i class="fas fa-chevron-down ml-1 icono-flecha"></i>
+                    </button>
+                    <div class="dropdown-contenido">
+                        <a href="#" class="dropdown-item">Español</a>
+                        <a href="#" class="dropdown-item">English</a>
+                        <a href="#" class="dropdown-item">Français</a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -388,6 +403,9 @@
                                     </a>
                                     <a href="https://www.google.com/maps/place/Caldos+Constituci%C3%B3n/@18.4142667,-70.1099018,21z/data=!4m14!1m7!3m6!1s0x8ea55e8d590ec513:0xf0a31c209f70ae0d!2sPiedras+Vivas+Park!8m2!3d18.4138655!4d-70.1095629!16s%2Fg%2F1tdr4c9j!3m5!1s0x8ea55f91b40c067f:0xbd1e9baf7f6cb356!8m2!3d18.4142864!4d-70.1099675!16s%2Fg%2F11md232ry3?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D" class="btn-red-social" target="_blank">
                                         <i class="fas fa-map-marker-alt"></i>
+                                    </a>
+                                    <a href="mailto:info@caldosconstitución.com" class="btn-red-social" target="_blank" title="Enviar correo">
+                                        <i class="fas fa-envelope"></i>
                                     </a>
                                 </div>
                             </div>

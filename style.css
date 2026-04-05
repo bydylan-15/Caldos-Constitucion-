@@ -193,7 +193,6 @@ body, .cuerpo-pagina {
 .espacio-x-4 > * + * {
     margin-left: 1rem;
 }
-
 /* Dropdown Idioma */
 .dropdown-idioma {
     position: relative;
@@ -326,7 +325,7 @@ body, .cuerpo-pagina {
     border: 1px solid #eee;
 }
 
-/* ESTA ES LA REGLA QUE TE FALTA PARA QUE EL JS FUNCIONE */
+/* PARA QUE EL JS FUNCIONE */
 .menu-desplegable.mostrar {
     display: block !important;
 }
@@ -1442,4 +1441,90 @@ body, .cuerpo-pagina {
     .video-responsive video {
         border-radius: 8px;
     }
+}
+
+/* Contenedor de notificaciones */
+.notificaciones-container {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-notificaciones {
+    min-width: 300px;
+    max-width: 350px;
+}
+
+.notificaciones-lista {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.notificacion-item {
+    padding: 10px 15px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.notificacion-item:last-child {
+    border-bottom: none;
+}
+
+.notificacion-item:hover {
+    background-color: #f8f9fa;
+}
+
+.notificacion-item.no-leida {
+    background-color: #fff9f0;
+}
+
+.notificacion-icono {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    font-size: 0.875rem;
+}
+
+.notificacion-contenido {
+    flex: 1;
+}
+
+.notificacion-titulo {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.875rem;
+    margin-bottom: 3px;
+}
+
+.notificacion-texto {
+    color: #666;
+    font-size: 0.8rem;
+    margin-bottom: 3px;
+    line-height: 1.3;
+}
+
+.notificacion-tiempo {
+    color: #999;
+    font-size: 0.7rem;
+}
+
+.notificaciones-vacio {
+    padding: 30px;
+    text-align: center;
+    color: #999;
+}
+
+.notificaciones-vacio i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #ddd;
 }

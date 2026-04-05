@@ -328,3 +328,40 @@
 .nav-link {
     font-family: var(--font-sans) !important;
 }
+/* ========================================
+   SUAVIZADO DE FUENTES Y BOTONES
+   ======================================== */
+
+/* Suavizado de fuentes (antialiasing) */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Tipografía del dropdown de idiomas */
+.btn-idioma,
+.btn-idioma span {
+    font-family: var(--font-sans) !important;
+}
+
+.dropdown-item {
+    font-family: var(--font-sans) !important;
+}
+
+/* Tipografía del menú desplegable de perfil */
+.menu-desplegable,
+.menu-desplegable a,
+.menu-desplegable p,
+.usuario-info,
+.usuario-info p {
+    font-family: var(--font-sans) !important;
+}
+
+/* Suavizar texto de todos los botones */
+.btn-idioma,
+.btn-perfil,
+.btn-notificacion {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
