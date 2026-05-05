@@ -101,6 +101,20 @@
     transform: translateY(0);
 }
 
+/* Foto cargada por el usuario */
+.avatar-grande img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.avatar-grande.con-foto i {
+    display: none;
+}
+
 /* Nombre del Usuario */
 .perfil-header h2 {
     color: white;
@@ -364,4 +378,256 @@ body {
 .btn-notificacion {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   MODAL EDITAR PERFIL
+   ======================================== */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.modal-overlay.activo {
+    display: flex;
+}
+
+.modal-card {
+    background: white;
+    border-radius: 1.5rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    animation: zoomIn 0.3s ease-out;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    color: white;
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header h3 i {
+    margin-right: 0.5rem;
+}
+
+.modal-cerrar {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.modal-cerrar:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.campo-grupo label {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--color-gray-600);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.campo-grupo label i {
+    color: var(--color-secondary);
+}
+
+.campo-grupo input {
+    padding: 0.85rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    color: var(--color-primary);
+    background: #f9fafb;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.campo-grupo input:focus {
+    border-color: var(--color-secondary);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.15);
+}
+
+.modal-footer {
+    padding: 1rem 2rem 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-cancelar {
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid #e5e7eb;
+    background: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-gray-600);
+    transition: all 0.3s ease;
+}
+
+.btn-cancelar:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+.btn-guardar {
+    flex: 1;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-guardar::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-guardar:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-guardar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(201, 169, 110, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-body {
+        padding: 1.5rem;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+        padding: 1rem 1.5rem 1.5rem;
+    }
+}
+
+/* Foto de perfil cargada */
+.avatar-grande img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.avatar-grande.con-foto i {
+    display: none;
+}
+
+/* Botones de foto en el modal */
+.foto-acciones {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.btn-foto {
+    flex: 1;
+    min-width: 130px;
+    padding: 0.75rem 1rem;
+    border-radius: 50px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid var(--color-secondary);
+    color: var(--color-secondary);
+    background: none;
+}
+
+.btn-foto:hover {
+    background: var(--color-secondary);
+    color: white;
+}
+
+.btn-foto-quitar {
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+
+.btn-foto-quitar:hover {
+    background: #e74c3c;
+    color: white;
+}
+
+.foto-hint {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    color: #9ca3af;
+    margin: 0;
 }

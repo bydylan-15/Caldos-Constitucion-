@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- ANIMACIÓN AL HACER SCROLL (IntersectionObserver) ---
+    // --- ANIMACIÓN AL HACER SCROLL ---
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // --- ANIMACIÓN DE PRECIOS CON EFECTO DE PULSO ---
+    // --- ANIMACIÓN DE PRECIOS ---
     const priceElements = document.querySelectorAll('.card-precio-secundario, .menu-item-precio');
     priceElements.forEach(price => {
         price.classList.add('pulse-slow-animation');
@@ -183,6 +183,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pNombre && nombreGuardado) pNombre.textContent = nombreGuardado;
     if (pTitulo && nombreGuardado) pTitulo.textContent = nombreGuardado;
     if (pEmail && emailGuardado) pEmail.textContent = emailGuardado;
+
+    // --- FOTO EN EL ICONO DE PERFIL DEL NAV ---
+    const btnPerfilIcono = document.querySelector('.btn-perfil');
+    const fotoNavGuardada = localStorage.getItem('fotoPerfil');
+
+    if (fotoNavGuardada && btnPerfilIcono) {
+        btnPerfilIcono.innerHTML = `
+            <img src="${fotoNavGuardada}" alt="Perfil" style="
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid var(--color-secondary);
+            ">
+        `;
+    }
 });
 
 // --- SISTEMA DE NOTIFICACIONES ---
@@ -343,3 +359,162 @@ document.addEventListener('DOMContentLoaded', () => {
     actualizarContador();
     renderizarNotificacionesDropdown();
 });
+
+// ===== MODAL EDITAR PERFIL =====
+const btnEditarPerfil = document.getElementById('btnEditarPerfil');
+const modalEditar = document.getElementById('modalEditarPerfil');
+const btnCerrarModal = document.getElementById('btnCerrarModal');
+const btnCancelarModal = document.getElementById('btnCancelarModal');
+const btnGuardarCambios = document.getElementById('btnGuardarCambios');
+
+// Abrir modal y precargar datos actuales
+if (btnEditarPerfil) {
+    btnEditarPerfil.addEventListener('click', () => {
+        document.getElementById('editNombre').value = document.getElementById('perfilNombre')?.textContent || '';
+        document.getElementById('editEmail').value = document.getElementById('perfilEmail')?.textContent || '';
+        modalEditar.classList.add('activo');
+    });
+}
+
+// Cerrar modal
+function cerrarModal() { modalEditar.classList.remove('activo'); }
+if (btnCerrarModal) btnCerrarModal.addEventListener('click', cerrarModal);
+if (btnCancelarModal) btnCancelarModal.addEventListener('click', cerrarModal);
+
+// Cerrar al hacer click fuera del modal
+if (modalEditar) {
+    modalEditar.addEventListener('click', (e) => {
+        if (e.target === modalEditar) cerrarModal();
+    });
+}
+
+// Guardar cambios
+if (btnGuardarCambios) {
+    btnGuardarCambios.addEventListener('click', () => {
+        const nuevoNombre = document.getElementById('editNombre').value.trim();
+        const nuevoEmail = document.getElementById('editEmail').value.trim();
+        const nuevaPass = document.getElementById('editPassword').value;
+        const confirmarPass = document.getElementById('editPasswordConfirm').value;
+
+        if (nuevaPass && nuevaPass !== confirmarPass) {
+            alert('Las contraseñas no coinciden.');
+            return;
+        }
+
+        // Actualiza los datos visibles en el perfil
+        if (nuevoNombre) {
+            document.getElementById('perfilNombre').textContent = nuevoNombre;
+            document.getElementById('perfilNombreTitulo').textContent = nuevoNombre;
+            document.getElementById('saludoNombre').textContent = 'Hola, ' + nuevoNombre.split(' ')[0] + ' ';
+        }
+        if (nuevoEmail) {
+            document.getElementById('perfilEmail').textContent = nuevoEmail;
+        }
+
+        cerrarModal();
+        alert('¡Cambios guardados exitosamente!');
+    });
+}
+
+// ===== FOTO DE PERFIL =====
+const avatarContainer = document.getElementById('avatarContainer');
+const inputFotoPerfil = document.getElementById('inputFotoPerfil');
+const fotoPerfilImg = document.getElementById('fotoPerfilImg');
+const iconoDefault = document.getElementById('iconoAvatarDefault');
+const btnCambiarFoto = document.getElementById('btnCambiarFoto');
+const btnQuitarFoto = document.getElementById('btnQuitarFoto');
+
+function actualizarFotoNav(src) {
+    const btnNav = document.querySelector('.btn-perfil');
+    if (!btnNav) return;
+    if (src) {
+        btnNav.innerHTML = `
+            <img src="${src}" alt="Perfil" style="
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid var(--color-secondary);
+            ">
+        `;
+    } else {
+        btnNav.innerHTML = `<i class="fas fa-user-circle icono-perfil"></i>`;
+    }
+}
+
+// Click directo en el avatar abre el selector
+if (avatarContainer) {
+    avatarContainer.addEventListener('click', () => {
+        inputFotoPerfil.click();
+    });
+}
+
+// Botón subir foto en el modal también abre el selector
+if (btnCambiarFoto) {
+    btnCambiarFoto.addEventListener('click', () => {
+        inputFotoPerfil.click();
+    });
+}
+
+// Cuando se selecciona una imagen
+if (inputFotoPerfil) {
+    inputFotoPerfil.addEventListener('change', (e) => {
+        const archivo = e.target.files[0];
+        if (!archivo) return;
+
+        if (!archivo.type.startsWith('image/')) {
+            alert('Por favor selecciona una imagen válida.');
+            return;
+        }
+        if (archivo.size > 5 * 1024 * 1024) {
+            alert('La imagen no debe pesar más de 5MB.');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            fotoPerfilImg.src = event.target.result;
+            fotoPerfilImg.style.display = 'block';
+            iconoDefault.style.display = 'none';
+            avatarContainer.classList.add('con-foto');
+            localStorage.setItem('fotoPerfil', event.target.result);
+
+            // Actualiza la foto de perfil del nav al instante
+            if (btnPerfilIcono) {
+                btnPerfilIcono.innerHTML = `
+                <img src="${event.target.result}" alt="Perfil" style="
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid var(--color-secondary);
+                ">
+                `;   
+            }
+        };
+        reader.readAsDataURL(archivo);
+    });
+}
+
+// Botón quitar foto
+if (btnQuitarFoto) {
+    btnQuitarFoto.addEventListener('click', () => {
+        if (confirm('¿Quieres quitar tu foto de perfil?')) {
+            fotoPerfilImg.src = '';
+            fotoPerfilImg.style.display = 'none';
+            iconoDefault.style.display = 'block';
+            avatarContainer.classList.remove('con-foto');
+            localStorage.removeItem('fotoPerfil');
+            inputFotoPerfil.value = '';
+        }
+    });
+}
+
+// Cargar foto guardada al abrir la página
+const fotoGuardada = localStorage.getItem('fotoPerfil');
+if (fotoGuardada && fotoPerfilImg) {
+    fotoPerfilImg.src = fotoGuardada;
+    fotoPerfilImg.style.display = 'block';
+    if (iconoDefault) iconoDefault.style.display = 'none';
+    if (avatarContainer) avatarContainer.classList.add('con-foto');
+}
