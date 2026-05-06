@@ -631,3 +631,24 @@ body {
     color: #9ca3af;
     margin: 0;
 }
+
+/* ========================================
+   FIX MENÚ MÓVIL
+   ======================================== */
+.menu-movil-desplegable {
+    background-color: var(--color-white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.menu-movil-link {
+    font-family: var(--font-sans) !important;
+    font-size: 0.875rem !important;
+    font-weight: 500;
+    color: var(--color-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.menu-movil-link:hover {
+    color: var(--color-secondary);
+}

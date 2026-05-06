@@ -357,6 +357,32 @@ if (fotoGuardada && fotoPerfilImg) {
     if (iconoDefault) iconoDefault.style.display = 'none';
     if (avatarContainer) avatarContainer.classList.add('con-foto');
 }
+
+// --- FILTRO DE MENÚ ---
+const btnsCategorias = document.querySelectorAll('.btn-categoria');
+const menuItems = document.querySelectorAll('.menu-item');
+
+if (btnsCategorias.length > 0) {
+    btnsCategorias.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Quitar active de todos
+            btnsCategorias.forEach(b => b.classList.remove('active'));
+            // Poner active al clickeado
+            btn.classList.add('active');
+
+            const categoria = btn.dataset.categoria;
+
+            menuItems.forEach(item => {
+                if (item.dataset.categoria === categoria) {
+                    item.classList.remove('oculto');
+                } else {
+                    item.classList.add('oculto');
+                }
+            });
+        });
+    });
+}
+
 });
 
 // --- SISTEMA DE NOTIFICACIONES ---

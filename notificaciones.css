@@ -317,3 +317,42 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+/* Tipografía de la página de notificaciones */
+.notificaciones-header-pagina h2,
+.notificacion-card-titulo {
+    font-family: var(--font-serif) !important;
+}
+
+.btn-marcar-leidas,
+.filtro-btn,
+.notificacion-card-mensaje,
+.notificacion-card-tiempo,
+.notificacion-btn,
+.notificaciones-vacio-pagina h3,
+.notificaciones-vacio-pagina p {
+    font-family: var(--font-sans) !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   FIX MENÚ MÓVIL
+   ======================================== */
+.menu-movil-desplegable {
+    background-color: var(--color-white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.menu-movil-link {
+    font-family: var(--font-sans) !important;
+    font-size: 0.875rem !important;
+    font-weight: 500;
+    color: var(--color-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.menu-movil-link:hover {
+    color: var(--color-secondary);
+}
