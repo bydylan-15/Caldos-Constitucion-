@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Menú Completo | Caldos Constitución</title>
+    <meta name="description" content="Menú completo de Caldos Constitución - Gastronomía Criolla Excepcional">
+    <link rel="stylesheet" href="menu-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ══════════════════════════════
+         BARRA DE NAVEGACIÓN
+    ══════════════════════════════ -->
+    <header class="header-principal" id="nav-header">
+        <nav class="contenedor nav-menu">
+            <div class="flex-items-center">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h1 class="logo-titulo">Caldos <span class="texto-gradiente">Constitución</span></h1>
+                </a>
+            </div>
+
+            <div class="menu-desktop" id="menu-principal">
+                <a href="index.html#inicio"   class="nav-link">Inicio</a>
+                <a href="menu.html"           class="nav-link active-page">Menú</a>
+                <a href="index.html#nosotros" class="nav-link">Nosotros</a>
+                <a href="index.html#contacto" class="nav-link">Contacto</a>
+            </div>
+
+            <div class="flex-items-center">
+                <button id="mobile-menu-button" class="btn-menu-movil">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="menu-movil-desplegable">
+            <a href="index.html#inicio"   class="menu-movil-link">Inicio</a>
+            <a href="menu.html"           class="menu-movil-link">Menú</a>
+            <a href="index.html#nosotros" class="menu-movil-link">Nosotros</a>
+            <a href="index.html#contacto" class="menu-movil-link">Contacto</a>
+        </div>
+    </header>
+
+    <!-- ══════════════════════════════
+         HERO
+    ══════════════════════════════ -->
+    <section class="hero-menu">
+        <div class="contenedor">
+            <div class="hero-menu-badge">Gastronomía Criolla</div>
+            <h1 class="fade-up">Nuestro <span class="texto-gradiente">Menú Completo</span></h1>
+            <div class="divisor-oro">
+                <span></span>
+                <i class="fas fa-utensils"></i>
+                <span></span>
+            </div>
+            <p class="fade-up" style="animation-delay:.2s">Cada plato preparado con ingredientes frescos y la tradición de San Cristóbal</p>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         FILTROS
+    ══════════════════════════════ -->
+    <div class="filtros-seccion">
+        <div class="contenedor">
+            <div class="filtros-wrap" id="filtros">
+                <button class="btn-filtro activo" data-cat="todos">🍽 Todos</button>
+                <button class="btn-filtro" data-cat="caldos">🥣 Caldos</button>
+                <button class="btn-filtro" data-cat="cocidos">🍖 Cocidos</button>
+                <button class="btn-filtro" data-cat="sancochos">🫕 Sancochos</button>
+                <button class="btn-filtro" data-cat="bebidas">🥤 Bebidas</button>
+                <button class="btn-filtro" data-cat="extras">✨ Extras</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         CONTENIDO DEL MENÚ
+    ══════════════════════════════ -->
+    <main class="menu-seccion">
+        <div class="contenedor">
+
+            <!-- ─── CALDOS ─── -->
+            <div class="categoria-bloque fade-up" id="cat-caldos" data-cat="caldos">
+                <div class="categoria-titulo-bloque">
+                    <i class="fas fa-fire icono-cat"></i>
+                    <h2>Caldos</h2>
+                    <div class="linea-titulo"></div>
+                </div>
+                <div class="grid-menu">
+
+                    <div class="card-plato fade-up">
+                        <div class="card-img-wrap">
+                            <img src="https://i.postimg.cc/FRQpG3VJ/DSC02630.png" alt="Pati-Mongo"
+                                 onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><i class=\'fas fa-bowl-food\'></i><span>Sin foto aún</span></div>'">
+                            <span class="badge-cat">Caldos</span>
+                        </div>
+                        <div class="card-cuerpo">
+                            <h3>Pati-Mongo</h3>
+                            <p>Delicioso guiso de paticas y mondongo de res, cocido a fuego lento con especias criollas y vegetales frescos. Auténtico sabor dominicano.</p>
+                            <div class="card-footer-plato">
+                                <span class="precio-tag">$450</span>
+                                <button class="btn-anadir"><i class="fas fa-plus"></i> Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-plato fade-up">
+                        <div class="card-img-wrap">
+                            <img src="https://i.postimg.cc/MH6cppz8/DSC02685.png" alt="Mondongo"
+                                 onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><i class=\'fas fa-bowl-food\'></i><span>Sin foto aún</span></div>'">
+                            <span class="badge-cat">Caldos</span>
+                        </div>
+                        <div class="card-cuerpo">
+                            <h3>Mondongo</h3>
+                            <p>Tradicional mondongo preparado con paciencia, amor y los ingredientes más frescos del mercado local.</p>
+                            <div class="card-footer-plato">
+                                <span class="precio-tag">$450</span>
+                                <button class="btn-anadir"><i class="fas fa-plus"></i> Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-plato fade-up">
+                        <div class="card-img-wrap">
+                            <!-- Pon tu URL aquí ↓ -->
+                            <img src="" alt="Caldereta Rey de los 7 Mares"
+                                 onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><i class=\'fas fa-fish\'></i><span>Sin foto aún</span></div>'">
+                            <span class="badge-cat">Caldos</span>
+                        </div>
+                        <div class="card-cuerpo">
+                            <h3>Caldereta Rey de los 7 Mares</h3>
+                            <p>El rey de nuestra cocina. Una caldereta de mariscos cocinada con maestría y sabores del Caribe.</p>
+                            <div class="card-footer-plato">
+                                <span class="precio-tag">$1,400</span>
+                                <button class="btn-anadir"><i class="fas fa-plus"></i> Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ─── COCIDOS ─── -->
+            <div class="categoria-bloque fade-up" id="cat-cocidos" data-cat="cocidos">
+                <div class="categoria-titulo-bloque">
+                    <i class="fas fa-drumstick-bite icono-cat"></i>
+                    <h2>Cocidos</h2>
+                    <div class="linea-titulo"></div>
+                </div>
+                <div class="grid-menu">
+
+                    <div class="card-plato fade-up">
+                        <div class="card-img-wrap">
+                            <img src="https://i.postimg.cc/MH6cppz8/DSC02685.png" alt="Cocido de Cerdo"
+                                 onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><i class=\'fas fa-drumstick-bite\'></i><span>Sin foto aún</span></div>'">
+                            <span class="badge-cat">Cocidos</span>
+                        </div>
+                        <div class="card-cuerpo">
+                            <h3>Cocido de Cerdo</h3>
+                            <p>Guiso tradicional con patica de cerdo y verduras frescas, lleno de sabor casero que conquista el paladar desde el primer bocado.</p>
+                            <div class="card-footer-plato">
+                                <span class="precio-tag">$450</span>
+                                <button class="btn-anadir"><i class="fas fa-plus"></i> Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-plato fade-up">
+                        <div class="card-img-wrap">
+                            <img src="https://i.postimg.cc/SxsKPPxV/DSC02634.png" alt="Cocido de Res"
+                                 onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><i class=\'fas fa-drumstick-bite\'></i><span>Sin foto aún</span></div>'">
+                            <span class="badge-cat">Cocidos</span>
+                        </div>
+                        <div class="card-cuerpo">
+                            <h3>Cocido de Res</h3>
+                            <p>Paticas de res cocidas a fuego lento con especias criollas. Un plato tradicional, sabroso y lleno de energía.</p>
+                            <div class="card-footer-plato">
+                                <span class="precio-tag">$450</span>
+                                <button class="btn-anadir"><i class="fas fa-plus"></i> Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ─── SANCOCHOS ─── -->
+            <div class="categoria-bloque fade-up" id="cat-sancochos" data-cat="sancochos">
+                <div class="categoria-titulo-bloque">
+                    <i class="fas fa-pepper-hot icono-cat"></i>
+                    <h2>Sancochos</h2>
+                    <div class="linea-titulo"></div>
+                </div>
+                <div class="grid-menu">
+
+                    <div class="card-plato fade-up">
+                        <div class="card-img-wrap">
+                            <img src="" alt="Sancocho de Res"
+                                 onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><i class=\'fas fa-bowl-food\'></i><span>Sin foto aún</span></div>'">
+                            <span class="badge-cat">Sancochos</span>
+                        </div>
+                        <div class="card-cuerpo">
+                            <h3>Sancocho de Res</h3>
+                            <p>Clásico caldo criollo preparado con carne de res, víveres frescos y un toque de especias tradicionales dominicanas.</p>
+                            <div class="card-footer-plato">
+                                <span class="precio-tag">$450</span>
+                                <button class="btn-anadir"><i class="fas fa-plus"></i> Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-plato fade-up">
+                        <div class="card-img-wrap">
+                            <img src="" alt="Sancocho"
+                                 onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><i class=\'fas fa-bowl-food\'></i><span>Sin foto aún</span></div>'">
+                            <span class="badge-cat">Sancochos</span>
+                        </div>
+                        <div class="card-cuerpo">
+                            <h3>Sancocho</h3>
+                            <p>Un plato reconfortante, lleno de sabor y esencia dominicana. Perfecto para cualquier hora del día.</p>
+                            <div class="card-footer-plato">
+                                <span class="precio-tag">$400</span>
+                                <button class="btn-anadir"><i class="fas fa-plus"></i> Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ─── BEBIDAS ─── -->
+            <div class="categoria-bloque fade-up" id="cat-bebidas" data-cat="bebidas">
+                <div class="categoria-titulo-bloque">
+                    <i class="fas fa-glass-water icono-cat"></i>
+                    <h2>Bebidas</h2>
+                    <div class="linea-titulo"></div>
+                </div>
+                <div class="grid-menu">
+
+                    <div class="card-plato fade-up">
+                        <div class="card-img-wrap">
+                            <img src="" alt="Jugo Natural"
+                                 onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><i class=\'fas fa-glass-water\'></i><span>Sin foto aún</span></div>'">
+                            <span class="badge-cat">Bebidas</span>
+                        </div>
+                        <div class="card-cuerpo">
+                            <h3>Jugo Natural</h3>
+                            <p>Jugos frescos preparados al momento con frutas tropicales de temporada.</p>
+                            <div class="card-footer-plato">
+                                <span class="precio-tag">$150</span>
+                                <button class="btn-anadir"><i class="fas fa-plus"></i> Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-plato fade-up">
+                        <div class="card-img-wrap">
+                            <img src="" alt="Refresco"
+                                 onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><i class=\'fas fa-glass-water\'></i><span>Sin foto aún</span></div>'">
+                            <span class="badge-cat">Bebidas</span>
+                        </div>
+                        <div class="card-cuerpo">
+                            <h3>Refresco</h3>
+                            <p>Bebidas frías para complementar tu experiencia gastronómica.</p>
+                            <div class="card-footer-plato">
+                                <span class="precio-tag">$100</span>
+                                <button class="btn-anadir"><i class="fas fa-plus"></i> Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ─── EXTRAS ─── -->
+            <div class="categoria-bloque fade-up" id="cat-extras" data-cat="extras">
+                <div class="categoria-titulo-bloque">
+                    <i class="fas fa-star icono-cat"></i>
+                    <h2>Extras</h2>
+                    <div class="linea-titulo"></div>
+                </div>
+                <div class="grid-menu">
+
+                    <div class="card-plato fade-up">
+                        <div class="card-img-wrap">
+                            <img src="" alt="Arroz Blanco"
+                                 onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><i class=\'fas fa-bowl-rice\'></i><span>Sin foto aún</span></div>'">
+                            <span class="badge-cat">Extras</span>
+                        </div>
+                        <div class="card-cuerpo">
+                            <h3>Arroz Blanco</h3>
+                            <p>Porción adicional de arroz blanco para acompañar tu plato principal.</p>
+                            <div class="card-footer-plato">
+                                <span class="precio-tag">$80</span>
+                                <button class="btn-anadir"><i class="fas fa-plus"></i> Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-plato fade-up">
+                        <div class="card-img-wrap">
+                            <img src="" alt="Pan de Agua"
+                                 onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><i class=\'fas fa-bread-slice\'></i><span>Sin foto aún</span></div>'">
+                            <span class="badge-cat">Extras</span>
+                        </div>
+                        <div class="card-cuerpo">
+                            <h3>Pan de Agua</h3>
+                            <p>Pan fresco crujiente, ideal para acompañar cualquier caldo o guiso.</p>
+                            <div class="card-footer-plato">
+                                <span class="precio-tag">$50</span>
+                                <button class="btn-anadir"><i class="fas fa-plus"></i> Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!-- /contenedor -->
+    </main>
+
+    <footer class="footer-principal">
+        <p>&copy; 2025 Caldos Constitución &mdash; San Cristóbal, República Dominicana</p>
+        <p style="margin-top:.4rem"><a href="index.html">← Volver al inicio</a></p>
+    </footer>
+
+    <script src="menu-script.js"></script>
+</body>
+</html>
